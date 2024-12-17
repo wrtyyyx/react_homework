@@ -1,0 +1,21 @@
+.nav_list{
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+}
+.nav_list li{
+
+}
+.nav_list a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+.nav_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+
+
