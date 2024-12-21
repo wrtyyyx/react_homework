@@ -20,7 +20,6 @@ react_homework/
 |   |-- pages/
 |   |-- App.js
 |   |-- index.js
-|-- public/
 |-- package.json
 |-- README.md
 ```
@@ -43,7 +42,7 @@ react_homework/
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/react_homework.git
+   git clone https://github.com/wrtyyyx/react_homework
    ```
 
 2. Navigate to the project directory:
@@ -68,23 +67,13 @@ npm start
 
 The application will open in your default browser at `http://localhost:3000`.
 
-## Assignments
-
-Each homework assignment is organized into separate components or pages. Below is a brief description of each:
-
-1. **Assignment 1**: [Description of the first homework]
-2. **Assignment 2**: [Description of the second homework]
-3. **Assignment 3**: [Description of the third homework]
-
-_Update this section as you add new assignments._
-
 ## Contact
 
 If you have any questions or suggestions, feel free to reach out:
 
-- **Name**: Dmitry
-- **Email**: [your-email@example.com]
-- **GitHub**: [https://github.com/yourusername](https://github.com/yourusername)
+- **Name**: Dmitry Soltanovskiy
+- **Email**: [volt96433@gmail.com](https://volt96433@gmail.com)
+- **GitHub**: [https://github.com/wrtyyyx](https://github.com/wrtyyyx)
 
 ---
 
