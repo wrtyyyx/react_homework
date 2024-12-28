@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {useEffect, useState} from "react";
+import Header from "./components/Header/Header.jsx";
+import sunglasses from './img/sunglasses.png'
+import basket from './img/basketball.png'
+import joy from './img/joy.png'
+import male from './img/male-technologist.png'
+import tired from './img/tired_face.png'
+import EmojiList from "./components/EmojiList/EmojiList.jsx";
+import Buttons from "./components/Buttons/Buttons.jsx";
+import RenderResult from "./components/RenderResult/RenderResult.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [emojis, setEmojis] = useState([
+        {emoji: basket, count: 0},
+        {emoji: joy, count: 0},
+        {emoji: male, count: 0},
+        {emoji: tired, count: 0},
+        {emoji: sunglasses, count: 0}
+    ])
+    const [winner, setWinner] = useState(null)
+    const [disabled, setDisabled] = useState(false)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    useEffect(() => {
+        if (winner) {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }, [winner]);
+    const clickHandler = (index) => {
+        setEmojis((prevEmojis) =>
+            prevEmojis.map((item, i) =>
+                i === index ? {...item, count: item.count + 1} : item
+            )
+        );
+    };
+    const resetPoints = () => {
+        setEmojis(emojis.map((item) => (
+            {...item, count: 0}
+        )))
+        setWinner(null)
+    }
+    const result = () => {
+        const maxCount = Math.max(...emojis.map((item) => item.count))
+        if (maxCount === 0) {
+            alert('Chose some emoji!!!')
+            return;
+        }
+        const maxEmoji = emojis.find(item => item.count === maxCount);
+        setWinner(maxEmoji)
+    }
+
+
+    return (
+        <>
+            <Header/>
+            <div className='container'>
+
+                <EmojiList emojis={emojis} onClick={clickHandler}/>
+
+                <Buttons reset={resetPoints} result={result} disabledBtn={disabled}/>
+                <RenderResult winner ={ winner}/>
+
+            </div>
+
+
+        </>
+    )
 }
 
 export default App

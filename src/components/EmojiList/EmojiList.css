@@ -1,0 +1,17 @@
+.emojis_list{
+    padding-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.emoji_item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    width: 30px;
+    user-select: none;
+    font-size: 20px;
+}
